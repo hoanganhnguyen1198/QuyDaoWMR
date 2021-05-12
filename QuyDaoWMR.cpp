@@ -37,6 +37,7 @@ vector<float> QuyDao::GetyRef()
 
 int QuyDao::TrajectoryMode(int mode)
 {
+    int check = 1;
     float temp = 0.000;
     float dxRef;
     float dyRef;
@@ -86,6 +87,7 @@ int QuyDao::TrajectoryMode(int mode)
                 yRef.push_back(temp);
             }
         }
+        check = 0;
         break;
     case 2:
         // xRef = 0,2 + 0,09*t - 0,09*u(t-2)*t + 0,105*cos(0,1507)*u(t-2)*t - 0,105*cos(0,1507)*u(t-4)*t + 0,12*cos(0,3015)*u(t-4)*t - 0,12*cos(0,3015)*u(t-8)*t + 0,09*u(t-8)*t;
@@ -142,6 +144,7 @@ int QuyDao::TrajectoryMode(int mode)
                 yRef.push_back(temp);
             }
         }
+        check = 0;
         break;
     case 3:
         // xRef = 0,2 + 0,09*t + 0,03*u(t-1)*t + 0,06*u(t-2)*t + 0,03*u(t-4)*t - 0,03*u(t-6)*t - 0,03*u(t-8)*t - 0,06*u(t-9)*t;
@@ -195,6 +198,7 @@ int QuyDao::TrajectoryMode(int mode)
                 yRef.push_back(temp);
             }
         }
+        check = 0;
         break;
     case 4:
         // xRef = 0,2 + 0,09*t*[u(t-0)-u(t-0.5)] + 0.105*cos(-0,1507)*t*[u(t-0,5)-u(t-2)] + 0,12*cos(-0,3015)*t*[u(t-2)-u(t-3.5)] + 0,15*cos(-0,3015)*t*[u(t-3.5)-u(t-5)] + 0,165*cos(-0,4523)*t*[u(t-7)] + 0,135*cos(-0,1507)*t*[u(t-7)-u(t-9)]+0,12*t*u(t-9);
@@ -275,10 +279,12 @@ int QuyDao::TrajectoryMode(int mode)
                 yRef.push_back(temp);
             }
         }
+        check = 0;
         break;
     default:
         cout << "Invalid Trajectory Mode.\n";
+        check = 1;
         break;
     }
-    return mode;
+    return check;
 }
