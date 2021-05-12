@@ -10,19 +10,19 @@ using namespace std;
 class QuyDao
 {
 private:
-    vector<float> xRef;
-    vector<float> yRef;
+    vector<float> xRef; // Reference x
+    vector<float> yRef; // Reference y
 
 public:
-    QuyDao();
-    ~QuyDao();
+    QuyDao(); // Constructor
+    ~QuyDao(); // Destructor
 
-    int UpdatexRef(vector<float>ref_x);
-    int UpdateyRef(vector<float>ref_y);
+    int UpdatexRef(vector<float>ref_x); // Update input ref_x into xRef
+    int UpdateyRef(vector<float>ref_y); // Update input ref_y into yRef
 
-    vector<float> GetxRef();
-    vector<float> GetyRef();
+    vector<float> GetxRef(); // Return yRef
+    vector<float> GetyRef(); // Return xRef
 
-    int TrajectoryMode(int mode);
+    int TrajectoryMode(int mode); // Select mode for the trajectory of the WMR (4 modes in total)
 };
 #endif

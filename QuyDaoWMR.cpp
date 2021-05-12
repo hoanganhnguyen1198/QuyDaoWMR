@@ -35,7 +35,7 @@ vector<float> QuyDao::GetyRef()
     return yRef;
 }
 
-int QuyDao::TrajectoryMode(int mode)
+int QuyDao::TrajectoryMode(int mode) // Return 0 if mode entered is valid, return 1 if mode entered is invalid
 {
     int check = 1;
     float temp = 0.000;
